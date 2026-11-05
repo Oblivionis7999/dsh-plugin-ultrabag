@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "description": "装好本配置后 --dump-config 顶层 entry 的白名单。只列关键 id，不列全树；条目总数随版本变化，不作判定。",
+  "verifiedWith": {
+    "dsh": "0.2.1-rc.5"
+  },
+  "mustExist": [
+    "session",
+    "agent",
+    "llm",
+    "storage",
+    "tool-fs",
+    "subagent",
+    "approval",
+    "permission",
+    "sandbox-policy",
+    "agent-preset-registry",
+    "preset-standard",
+    "preset-ptc",
+    "preset-minimal",
+    "web-ui-settings",
+    "web-ui-task-board",
+    "web-ui-usage",
+    "web-ui-liangshen",
+    "dsh-chatgpt-subscription",
+    "dsh-annotation",
+    "session-stats-panel"
+  ],
+  "mustBeDisabled": [
+    "web-ui-remote-bridge",
+    "web-ui-task-board-remote"
+  ],
+  "mustNotExist": [
+    "preset-pdf-toc"
+  ],
+  "notes": {
+    "web-ui-liangshen": "梁神模式预设由该入口在启动时声明，没有独立的 preset-* 顶层 id",
+    "dsh-chatgpt-subscription": "调度模式（dispatch）预设由该入口声明；保留该包即可，不必登录订阅",
+    "session-stats-panel": "dsh-session-stats-panel 的入口"
+  }
+}

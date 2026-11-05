@@ -1,0 +1,21 @@
+packages:
+  - .
+
+nodeLinker: hoisted
+autoInstallPeers: false
+
+# dsh-web(all) 依赖的 native 构建脚本审批：必须在首次 add 之前以映射形式就位
+allowBuilds:
+  cloudflared: true
+  cpu-features: true
+  ssh2: true
+
+# pnpm 11 的发布时效安全策略：放行 @linxin666/* 命名空间，避免回退到旧版本
+minimumReleaseAgeExclude:
+  - '@linxin666/*'
+  - '@openai/*'
+
+# 把 Codex 子智能体自带的 @openai/codex 从 0.153.4 升到 0.166.0
+# 原因：0.153.4 对 ChatGPT 账号返回 model_not_found，0.166.0 正常
+overrides:
+  '@openai/codex': 0.166.0

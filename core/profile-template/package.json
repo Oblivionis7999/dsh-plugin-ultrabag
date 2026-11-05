@@ -1,0 +1,46 @@
+{
+  "name": "dsh-profile-web",
+  "private": true,
+  "packageManager": "pnpm@11.28.9",
+  "dependencies": {
+    "@changfenhuang/dsh-annotation": "^1.4.11",
+    "@deepseek-ai/dsh-subagent-claude-code": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-subagent-codex": "0.2.1-rc.5",
+    "@deepseek-harness-tui/dsh-tui": "^0.18.0",
+    "@eddyskywalker/dsh-chatgpt-subscription": "0.55.0",
+    "@linxin666/dsh-web-all": "0.4.14",
+    "dsh-codex-effort-slider": "^1.1.4",
+    "dsh-prompt-enhance": "^0.3.4",
+    "dsh-session-insights": "^0.7.0",
+    "dsh-session-stats-panel": "2.2.2",
+    "dsh-whale-widget": "^0.4.2"
+  },
+  "dsh": {
+    "profile": {
+      "bundles": [
+        "@deepseek-ai/dsh-base",
+        "@deepseek-ai/dsh-web-app",
+        "dsh-whale-widget",
+        "@deepseek-ai/dsh-experimental-auto-review",
+        "@deepseek-ai/dsh-experimental-agent-team-profile",
+        "@deepseek-ai/dsh-experimental-voice-input-bundle",
+        "dsh-session-stats-panel",
+        "dsh-codex-effort-slider",
+        "@linxin666/dsh-web-all",
+        "dsh-prompt-enhance",
+        "@deepseek-harness-tui/dsh-tui",
+        "@changfenhuang/dsh-annotation",
+        "@eddyskywalker/dsh-chatgpt-subscription",
+        "dsh-session-insights",
+        "@deepseek-ai/dsh-experimental-tool-worktree",
+        "@deepseek-ai/dsh-experimental-cot-translation-bundle",
+        "@deepseek-ai/dsh-experimental-session-search",
+        "@deepseek-ai/dsh-experimental-session-titles-bundle",
+        "@deepseek-ai/dsh-experimental-plugin-market-bundle",
+        "@deepseek-ai/dsh-subagent-codex",
+        "@deepseek-ai/dsh-subagent-claude-code",
+        "@deepseek-ai/dsh-experimental-ralph-bundle"
+      ]
+    }
+  }
+}

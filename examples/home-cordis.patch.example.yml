@@ -1,0 +1,72 @@
+# 示例：三条可选 MCP 服务器
+#
+# 放在 <DSH_HOME>\cordis.patch.yml（DSH_HOME 根目录那份，不是 profile 里那份），
+# 对所有 profile 生效。三条都是可选的，互不依赖：
+#   - 只要其中几条，就只保留那几条；
+#   - 某条装不上或不需要，直接把那一整段（从 "- id:" 到下一个 "- id:" 之前）删掉。
+# 所有 <...> 都要换成你本机的真实路径。Windows 路径里有空格时不用加引号。
+# 详细说明见 docs/mcp.md。
+
+- insert:
+    # ---------------------------------------------------------------
+    # rea：逆向工程工具集（可选）
+    # 来源：npm 包 rea-agents（https://github.com/morluto/rea），MIT
+    # 安装：npm i -g rea-agents
+    # env 里每一项对应一个外部工具；没装的工具，删掉那一行即可，
+    # 对应的 rea 功能会不可用，其余照常。
+    # ---------------------------------------------------------------
+    - id: rea-mcp
+      name: "@deepseek-ai/dsh-mcp-client"
+      config:
+        serverName: rea
+        transport: stdio
+        command: <NODE_EXE>                       # 例如 node.exe 的完整路径
+        args:
+          - <NPM_GLOBAL_ROOT>\rea-agents\scripts\rea.mjs   # npm root -g 的输出 + 后半段
+          - mcp
+        env:
+          JAVA_HOME: <JDK_21_DIR>
+          GHIDRA_INSTALL_DIR: <GHIDRA_DIR>
+          REA_JADX_MCP_JAR: <PATH_TO>\jadx-headless-mcp-all.jar
+          REA_APKTOOL_COMMAND: <PATH_TO>\apktool.bat
+          REA_WABT_BIN_DIRECTORY: <WABT_DIR>\bin
+          REA_ADB_PATH: <PLATFORM_TOOLS_DIR>\adb.exe
+          REA_BROWSER_EXECUTABLE: <CHROME_OR_EDGE_EXE>
+          TMP: <SHORT_TEMP_DIR>                   # 建议用短路径，避免长路径问题
+          TEMP: <SHORT_TEMP_DIR>
+
+    # ---------------------------------------------------------------
+    # win：Windows 桌面操作（可选）
+    # 来源：PyPI 包 windows-mcp（https://github.com/CursorTouch/Windows-MCP），MIT
+    # 安装：uv tool install windows-mcp
+    # --exclude-tools 关掉了它的 PowerShell 和注册表工具：
+    # DSH 已有自己的 shell 工具，这里只保留看屏幕、键鼠、窗口、文件等操作。
+    # ---------------------------------------------------------------
+    - id: windows-mcp
+      name: "@deepseek-ai/dsh-mcp-client"
+      config:
+        serverName: win
+        transport: stdio
+        command: <UV_TOOL_BIN_DIR>\windows-mcp.exe   # uv tool dir --bin 的输出
+        args:
+          - serve
+          - --exclude-tools
+          - PowerShell,Registry
+          - --control-idle-timeout
+          - "3"
+        env:
+          ANONYMIZED_TELEMETRY: "false"
+
+    # ---------------------------------------------------------------
+    # kimi：KimiCU 计算机控制（可选）
+    # 来源：Kimi 官方发布的闭源 Windows 程序，没有公开的再分发许可。
+    # 本仓库不提供下载，请自行从 Kimi 官方渠道获取并安装。
+    # ---------------------------------------------------------------
+    - id: kimi-cu-mcp
+      name: "@deepseek-ai/dsh-mcp-client"
+      config:
+        serverName: kimi
+        transport: stdio
+        command: <KIMICU_INSTALL_DIR>\kimi-cu.exe
+        args:
+          - mcp

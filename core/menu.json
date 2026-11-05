@@ -1,0 +1,349 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-05",
+  "profile": "web",
+  "verifiedAgainst": {
+    "dsh": "0.2.1-rc.5",
+    "node": "v24.22.1",
+    "pnpm": "10.24.0（profile packageManager 声明 pnpm@11.28.9，两者 lockfileVersion 9.0 互通）",
+    "os": "Windows 11"
+  },
+  "sourceOfTruth": "以 profile-template/package.json 的 dsh.profile.bundles 与 profile-template/cordis.patch.yml 为准。本文件只是给 agent/人阅读的摘要；与模板冲突时，模板说了算。",
+  "usage": [
+    "install.ps1 会把 profile-template 原样铺到 DSH_HOME\\profiles\\web，因此 default 里的插件默认就是开启的。",
+    "optional 里的插件同样已安装，但缺少 needs 里列的东西时不会真正可用（登录、外部程序、网络、目录等）。",
+    "excluded 里的插件已安装但默认 disabled: true；需要时先运行 harden.ps1 -Restore，再到设置/插件面板开启。",
+    "不要为了“启用某个 excluded 插件”去改别人的 patch：用插件面板（会写 profile 的 patch）或 harden.ps1 -Restore。",
+    "本文件是 JSON，agent 可直接 ConvertFrom-Json 读取。"
+  ],
+  "bundles": [
+    {
+      "name": "@deepseek-ai/dsh-base",
+      "note": "核心运行时与工具，必须保留"
+    },
+    {
+      "name": "@deepseek-ai/dsh-web-app",
+      "note": "WebUI 前端与宿主"
+    },
+    {
+      "name": "dsh-whale-widget",
+      "note": "桌面挂件"
+    },
+    {
+      "name": "@deepseek-ai/dsh-experimental-auto-review",
+      "note": "实验性自动审阅"
+    },
+    {
+      "name": "@deepseek-ai/dsh-experimental-agent-team-profile",
+      "note": "实验性 agent team"
+    },
+    {
+      "name": "@deepseek-ai/dsh-experimental-voice-input-bundle",
+      "note": "实验性语音输入"
+    },
+    {
+      "name": "dsh-session-stats-panel",
+      "note": "会话统计面板；本机为 link: 本地包，见 optional 里的 portability 说明"
+    },
+    {
+      "name": "dsh-codex-effort-slider",
+      "note": "Codex reasoning effort 滑杆"
+    },
+    {
+      "name": "@linxin666/dsh-web-all",
+      "note": "第三方 Web UI 聚合包（24 个 web-ui-* 入口）"
+    },
+    {
+      "name": "dsh-prompt-enhance",
+      "note": "提示词增强"
+    },
+    {
+      "name": "@deepseek-harness-tui/dsh-tui",
+      "note": "TUI 前端 bundle；它同时覆盖了 approval/sandbox 的默认值"
+    },
+    {
+      "name": "@changfenhuang/dsh-annotation",
+      "note": "批注"
+    },
+    {
+      "name": "@eddyskywalker/dsh-chatgpt-subscription",
+      "note": "ChatGPT 订阅 provider；需要登录，见 excluded"
+    },
+    {
+      "name": "dsh-session-insights",
+      "note": "会话洞察"
+    },
+    {
+      "name": "@deepseek-ai/dsh-experimental-tool-worktree",
+      "note": "实验性 git worktree 工具"
+    },
+    {
+      "name": "@deepseek-ai/dsh-experimental-cot-translation-bundle",
+      "note": "实验性思维链翻译"
+    },
+    {
+      "name": "@deepseek-ai/dsh-experimental-session-search",
+      "note": "实验性会话搜索"
+    },
+    {
+      "name": "@deepseek-ai/dsh-experimental-session-titles-bundle",
+      "note": "实验性会话标题（LLM 生成）"
+    },
+    {
+      "name": "@deepseek-ai/dsh-experimental-plugin-market-bundle",
+      "note": "实验性插件市场"
+    },
+    {
+      "name": "@deepseek-ai/dsh-subagent-codex",
+      "note": "Codex 子智能体；需要本机已装并登录 codex CLI"
+    },
+    {
+      "name": "@deepseek-ai/dsh-subagent-claude-code",
+      "note": "Claude Code 子智能体；需要本机已装并登录 claude CLI"
+    },
+    {
+      "name": "@deepseek-ai/dsh-experimental-ralph-bundle",
+      "note": "实验性 Ralph 循环"
+    }
+  ],
+  "default": [
+    {
+      "id": "web-ui-task-board",
+      "package": "@linxin666/dsh-client-ui-task-board",
+      "note": "任务板面板"
+    },
+    {
+      "id": "web-ui-agents",
+      "package": "@linxin666/dsh-agents",
+      "note": "Agents 面板"
+    },
+    {
+      "id": "web-ui-git-graph",
+      "package": "@linxin666/dsh-client-ui-git-graph",
+      "note": "Git 图"
+    },
+    {
+      "id": "web-ui-i18n",
+      "package": "@linxin666/dsh-i18n",
+      "note": "多语言"
+    },
+    {
+      "id": "web-ui-liangshen",
+      "package": "@linxin666/dsh-liangshen",
+      "note": "量神（团队协作入口）"
+    },
+    {
+      "id": "web-ui-market",
+      "package": "@linxin666/dsh-client-ui-market",
+      "note": "插件市场面板"
+    },
+    {
+      "id": "web-ui-message-edit",
+      "package": "@linxin666/dsh-client-ui-message-edit",
+      "note": "消息编辑"
+    },
+    {
+      "id": "web-ui-plugin-manager",
+      "package": "@linxin666/dsh-client-ui-plugin-manager",
+      "note": "插件管理面板"
+    },
+    {
+      "id": "web-ui-preset-center",
+      "package": "@linxin666/dsh-client-ui-preset-center",
+      "note": "预设中心"
+    },
+    {
+      "id": "web-ui-session-archive",
+      "package": "@linxin666/dsh-session-archive",
+      "note": "会话归档（autoArchiveEnabled: true）"
+    },
+    {
+      "id": "web-ui-settings",
+      "package": "@linxin666/dsh-client-ui-web-ui-settings",
+      "note": "WebUI 设置"
+    },
+    {
+      "id": "web-ui-community-plugins",
+      "package": "@linxin666/dsh-client-ui-community-plugins",
+      "note": "社区插件列表"
+    },
+    {
+      "id": "web-ui-usage",
+      "package": "@linxin666/dsh-usage",
+      "note": "用量统计"
+    },
+    {
+      "id": "web-ui-win-bash",
+      "package": "@linxin666/dsh-win-bash",
+      "note": "Windows 下的 bash 工具（win_bash）"
+    },
+    {
+      "id": "web-ui-skill-explorer",
+      "package": "@linxin666/dsh-client-ui-skill-explorer",
+      "note": "技能浏览；读取 DSH_HOME\\skills"
+    },
+    {
+      "id": "dsh-annotation",
+      "package": "@changfenhuang/dsh-annotation",
+      "note": "回复批注"
+    },
+    {
+      "id": "dsh-whale-widget",
+      "package": "dsh-whale-widget",
+      "note": "桌宠/挂件"
+    },
+    {
+      "id": "prompt-enhance",
+      "package": "dsh-prompt-enhance",
+      "note": "提示词增强"
+    },
+    {
+      "id": "codex-effort-slider",
+      "package": "dsh-codex-effort-slider",
+      "note": "Codex effort 滑杆"
+    },
+    {
+      "id": "session-insights",
+      "package": "dsh-session-insights",
+      "note": "会话洞察"
+    },
+    {
+      "id": "dsh-tui",
+      "package": "@deepseek-harness-tui/dsh-tui",
+      "note": "TUI bundle；同时覆盖 approval/sandbox 默认值"
+    },
+    {
+      "id": "auto-review",
+      "package": "@deepseek-ai/dsh-experimental-auto-review",
+      "note": "实验性自动审阅"
+    },
+    {
+      "id": "agent-team",
+      "package": "@deepseek-ai/dsh-experimental-agent-team-profile",
+      "note": "实验性 agent team"
+    },
+    {
+      "id": "worktree",
+      "package": "@deepseek-ai/dsh-experimental-tool-worktree",
+      "note": "git worktree 工具"
+    },
+    {
+      "id": "cot-translation",
+      "package": "@deepseek-ai/dsh-experimental-cot-translation-bundle",
+      "note": "思维链翻译"
+    },
+    {
+      "id": "optional-session-search",
+      "package": "@deepseek-ai/dsh-experimental-session-search",
+      "note": "会话搜索"
+    },
+    {
+      "id": "plugin-market",
+      "package": "@deepseek-ai/dsh-experimental-plugin-market-bundle",
+      "note": "插件市场"
+    },
+    {
+      "id": "speech-to-text-sensevoice",
+      "package": "@deepseek-ai/dsh-experimental-voice-input-bundle",
+      "note": "语音输入（sensevoice）"
+    },
+    {
+      "id": "subagent-codex",
+      "package": "@deepseek-ai/dsh-subagent-codex",
+      "note": "已挂载；真正调用需要本机 codex CLI 登录"
+    },
+    {
+      "id": "subagent-claude-code",
+      "package": "@deepseek-ai/dsh-subagent-claude-code",
+      "note": "已挂载；真正调用需要本机 claude CLI 登录"
+    }
+  ],
+  "optional": [
+    {
+      "id": "web-ui-ssh",
+      "package": "@linxin666/dsh-ssh",
+      "needs": [
+        "SSH 目标主机配置",
+        "可用的 ssh 客户端"
+      ],
+      "status": "已启用但空转",
+      "note": "没有 SSH 主机配置时面板为空；不影响其他功能。"
+    },
+    {
+      "id": "web-ui-browser-view",
+      "package": "@linxin666/dsh-client-ui-browser-view",
+      "needs": [
+        "本机 Chrome 或 Edge"
+      ],
+      "status": "已启用",
+      "note": "作者配置 realBrowserEnabled: true；浏览器路径按机器不同，首次使用需确认。"
+    },
+    {
+      "id": "web-ui-task-board-github",
+      "package": "@linxin666/dsh-client-ui-task-board-github",
+      "needs": [
+        "GitHub token（在插件设置里填）",
+        "网络"
+      ],
+      "status": "已启用但未配置",
+      "note": "token 不要写进仓库；本发布包不含任何凭据。"
+    },
+    {
+      "id": "web-ui-task-board-team",
+      "package": "@linxin666/dsh-client-ui-task-board-team",
+      "needs": [
+        "team 模式配置",
+        "局域网/多端可达"
+      ],
+      "status": "已启用但未配置",
+      "note": "单机使用可忽略。"
+    },
+    {
+      "id": "web-ui-pet",
+      "package": "@linxin666/dsh-pet",
+      "needs": [],
+      "status": "作者本机 disabled: true",
+      "note": "桌宠；想开就在插件面板开启，与发布选择无关。"
+    },
+    {
+      "id": "web-ui-skin-center",
+      "package": "@linxin666/dsh-client-ui-skin-center",
+      "needs": [],
+      "status": "作者本机 disabled: true",
+      "note": "皮肤中心；作者不用，保留安装。"
+    },
+    {
+      "id": "session-stats-panel",
+      "package": "dsh-session-stats-panel",
+      "needs": [
+        "无（从 npm 安装 dsh-session-stats-panel@2.2.2）"
+      ],
+      "status": "link: 本地包",
+      "portability": "local-link",
+      "note": "作者本机用 link: 指向源码目录开发；发布模板已改为 npm 版本 2.2.2。"
+    }
+  ],
+  "excluded": [
+    {
+      "id": "web-ui-remote-bridge",
+      "package": "@linxin666/dsh-remote-bridge",
+      "status": "installed-disabled",
+      "reason": "把 WebUI 变成可被远程端连入的桥；作者本机长期关闭，发布默认 disabled: true。",
+      "enableHint": "harden.ps1 -Restore 后在插件面板开启；开启前想清楚暴露面。"
+    },
+    {
+      "id": "web-ui-task-board-remote",
+      "package": "@linxin666/dsh-task-board-remote",
+      "status": "installed-disabled",
+      "reason": "任务板的远程面，依赖 remote-bridge；两者一起关。",
+      "enableHint": "同上，且应先确保 remote-bridge 的鉴权/暴露范围。"
+    },
+    {
+      "id": "dsh-chatgpt-subscription",
+      "package": "@eddyskywalker/dsh-chatgpt-subscription",
+      "status": "installed-requires-credentials",
+      "reason": "需要 ChatGPT 订阅登录（codex auth）；未登录时 provider 不可用，且它会参与 provider 选择。",
+      "enableHint": "登录 ChatGPT/Codex 后自然可用；不要把 .credentials.yaml 带进任何仓库。"
+    }
+  ]
+}

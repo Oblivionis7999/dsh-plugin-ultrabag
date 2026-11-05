@@ -1,0 +1,541 @@
+{
+  "manifestVersion": 1,
+  "generated": "2026-11-05",
+  "description": "Inventory of the 46 skills used by this DSH setup. The skills themselves are NOT vendored into this repository: they total 43.80 MiB / 13472 files, of which ppt-master alone is 38.2 MiB. install-skills.ps1 fetches each skill from its own upstream instead.",
+  "installTarget": "<DshHome>/skills/<name>",
+  "totals": {
+    "skills": 46,
+    "bytes": 45931268,
+    "bytesHuman": "43.80 MiB",
+    "files": 13472,
+    "hidden": 24,
+    "knownGood": 40,
+    "unverified": 5,
+    "skip": 1
+  },
+  "statusMeaning": {
+    "known-good": "Upstream repository, license and copyright holder are all confirmed. Installed by default.",
+    "unverified": "Probable upstream, but the skill is not named in the upstream authoritative skill list. Installed only with -SkipUnverified:$false.",
+    "skip": "No verified upstream and/or no usable copyright attribution. Never installed; the script prints the reason."
+  },
+  "sources": {
+    "mattpocock/skills": {
+      "repo": "https://github.com/mattpocock/skills",
+      "acquire": "git-or-zip",
+      "ref": "main",
+      "license": "MIT",
+      "copyright": "Copyright (c) 2026 Matt Pocock",
+      "licenseUrl": "https://raw.githubusercontent.com/mattpocock/skills/main/LICENSE",
+      "layoutHint": "skills/<name>/SKILL.md, with a beta bucket under skills/in-progress/<name>/SKILL.md"
+    },
+    "morluto/rea": {
+      "repo": "https://github.com/morluto/rea",
+      "acquire": "git-or-zip",
+      "ref": "main",
+      "npmPackage": "rea-agents",
+      "npmVersion": "6.8.0",
+      "license": "MIT",
+      "copyright": "Copyright (c) morluto - see the repository LICENSE for the exact copyright line",
+      "licenseUrl": "https://github.com/morluto/rea",
+      "layoutHint": "npm package rea-agents, or the skills/ tree of the repository"
+    },
+    "hugohe3/ppt-master": {
+      "repo": "https://github.com/hugohe3/ppt-master",
+      "acquire": "git-or-zip",
+      "ref": "main",
+      "license": "MIT",
+      "copyright": "Copyright (c) 2025-2026 Hugo He",
+      "licenseUrl": "https://raw.githubusercontent.com/hugohe3/ppt-master/main/LICENSE",
+      "layoutHint": "repository root is the skill directory"
+    },
+    "unknown": {
+      "repo": null,
+      "acquire": "none",
+      "license": "MIT declared in SKILL.md frontmatter, no LICENSE file present",
+      "copyright": "UNKNOWN - the copyright holder has not been identified",
+      "layoutHint": "no upstream located"
+    }
+  },
+  "skills": [
+    {
+      "name": "ask-matt",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "16.7 KB",
+      "sizeBytes": 17137,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good",
+      "notes": "router skill; uses the Matt Pocock name, and MIT does not grant trademark rights"
+    },
+    {
+      "name": "chief-of-staff",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "4.9 KB",
+      "sizeBytes": 4993,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "unverified",
+      "statusReason": "not listed in the upstream README or in-progress README; attribution inferred from an internal reference to mattpocock/skills and from shared terminology"
+    },
+    {
+      "name": "claude-handoff",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "1.6 KB",
+      "sizeBytes": 1588,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good",
+      "notes": "beta bucket (skills/in-progress); requires the Anthropic Claude Code CLI at runtime"
+    },
+    {
+      "name": "code-review",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "6.8 KB",
+      "sizeBytes": 6913,
+      "hidden": false,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "codebase-design",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "11.7 KB",
+      "sizeBytes": 11998,
+      "hidden": false,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "diagnosing-bugs",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "10.0 KB",
+      "sizeBytes": 10268,
+      "hidden": false,
+      "hasScripts": true,
+      "status": "known-good",
+      "notes": "ships a bash HITL loop template"
+    },
+    {
+      "name": "diagram-design",
+      "source": "unknown",
+      "license": "MIT (declared in frontmatter, no LICENSE file)",
+      "size": "5.2 MB",
+      "sizeBytes": 5434479,
+      "hidden": false,
+      "hasScripts": true,
+      "status": "skip",
+      "statusReason": "copyright holder unknown; the skill declares MIT in its frontmatter and carries metadata.version 2.6, but no LICENSE file and no official_repository field. Third-party mirrors attribute it to 'cathrynlavery' without a verifiable repository. Not redistributable until the copyright holder is identified."
+    },
+    {
+      "name": "domain-modeling",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "8.5 KB",
+      "sizeBytes": 8664,
+      "hidden": false,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "git-guardrails-claude-code",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "3.0 KB",
+      "sizeBytes": 3055,
+      "hidden": false,
+      "hasScripts": true,
+      "status": "unverified",
+      "statusReason": "not listed in the upstream README or in-progress README; attribution inferred from consistent style only",
+      "notes": "installs a Claude Code hook that blocks destructive git commands; review the hook before enabling"
+    },
+    {
+      "name": "grill-me",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "0.3 KB",
+      "sizeBytes": 306,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "grill-with-docs",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "0.4 KB",
+      "sizeBytes": 404,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "grilling",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "2.2 KB",
+      "sizeBytes": 2223,
+      "hidden": false,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "handoff",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "1.1 KB",
+      "sizeBytes": 1102,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "implement",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "0.8 KB",
+      "sizeBytes": 783,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "implement-spec",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "3.0 KB",
+      "sizeBytes": 3050,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "improve-codebase-architecture",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "12.7 KB",
+      "sizeBytes": 13034,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "loop-me",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "2.6 KB",
+      "sizeBytes": 2699,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good",
+      "notes": "beta bucket (skills/in-progress)"
+    },
+    {
+      "name": "migrate-to-shoehorn",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "3.0 KB",
+      "sizeBytes": 3026,
+      "hidden": false,
+      "hasScripts": false,
+      "status": "unverified",
+      "statusReason": "not listed in the upstream README or in-progress README; targets @total-typescript/shoehorn, which is the same author's package, but that is inference rather than an upstream statement"
+    },
+    {
+      "name": "ppt-master",
+      "source": "hugohe3/ppt-master",
+      "license": "MIT",
+      "size": "38.2 MB",
+      "sizeBytes": 40009078,
+      "hidden": false,
+      "hasScripts": true,
+      "status": "known-good",
+      "notes": "the only skill that ships its own LICENSE. Its SKILL.md frontmatter pins copyright/license/official_repository and scripts/attribution_guard.py verifies them plus a LICENSE digest, so do not reformat or delete LICENSE, SPONSORS.md or SPONSORS_CN.md. Bundled icon sets fall under templates/icons/THIRD_PARTY_NOTICES.md, not under the MIT grant."
+    },
+    {
+      "name": "pr",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "4.9 KB",
+      "sizeBytes": 5042,
+      "hidden": false,
+      "hasScripts": false,
+      "status": "known-good",
+      "notes": "CREDITS.md reproduces HumanLayer's show-me content almost verbatim under MIT (Copyright (c) 2026 HumanLayer). Keep CREDITS.md when redistributing."
+    },
+    {
+      "name": "prototype",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "15.8 KB",
+      "sizeBytes": 16188,
+      "hidden": false,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "rea-analysis-optimization",
+      "source": "morluto/rea",
+      "license": "MIT",
+      "size": "14.2 KB",
+      "sizeBytes": 14541,
+      "hidden": false,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "rea-changelog-update",
+      "source": "morluto/rea",
+      "license": "MIT",
+      "size": "7.4 KB",
+      "sizeBytes": 7602,
+      "hidden": false,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "rea-ci-tests-audit",
+      "source": "morluto/rea",
+      "license": "MIT",
+      "size": "10.7 KB",
+      "sizeBytes": 10939,
+      "hidden": false,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "rea-tool-design",
+      "source": "morluto/rea",
+      "license": "MIT",
+      "size": "1.8 KB",
+      "sizeBytes": 1865,
+      "hidden": false,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "research",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "0.9 KB",
+      "sizeBytes": 941,
+      "hidden": false,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "retro",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "4.5 KB",
+      "sizeBytes": 4564,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "reverse-engineer-anything",
+      "source": "morluto/rea",
+      "license": "MIT",
+      "size": "134.5 KB",
+      "sizeBytes": 137719,
+      "hidden": false,
+      "hasScripts": false,
+      "status": "known-good",
+      "notes": "pins rea-agents@6.8.0 in its commands; setup --yes can write MCP client config and --install-hopper installs a commercial tool"
+    },
+    {
+      "name": "scaffold-exercises",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "3.7 KB",
+      "sizeBytes": 3806,
+      "hidden": false,
+      "hasScripts": false,
+      "status": "unverified",
+      "statusReason": "not listed in the upstream README or in-progress README; course-scaffolding toolchain, attribution inferred from domain fit"
+    },
+    {
+      "name": "setup-matt-pocock-skills",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "21.5 KB",
+      "sizeBytes": 21965,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "setup-pre-commit",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "2.4 KB",
+      "sizeBytes": 2451,
+      "hidden": false,
+      "hasScripts": false,
+      "status": "unverified",
+      "statusReason": "not listed in the upstream README or in-progress README; generic engineering content with matching style"
+    },
+    {
+      "name": "setup-ts-deep-modules",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "11.3 KB",
+      "sizeBytes": 11609,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good",
+      "notes": "beta bucket (skills/in-progress)"
+    },
+    {
+      "name": "software-factory",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "42.0 KB",
+      "sizeBytes": 43006,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good",
+      "notes": "beta bucket (skills/in-progress)"
+    },
+    {
+      "name": "tdd",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "7.4 KB",
+      "sizeBytes": 7588,
+      "hidden": false,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "teach",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "18.1 KB",
+      "sizeBytes": 18494,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "to-questionnaire",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "3.1 KB",
+      "sizeBytes": 3129,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "to-spec",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "3.2 KB",
+      "sizeBytes": 3258,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "to-tickets",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "5.9 KB",
+      "sizeBytes": 6068,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "triage",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "19.3 KB",
+      "sizeBytes": 19731,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "wait-what",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "0.6 KB",
+      "sizeBytes": 566,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "wayfinder",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "12.4 KB",
+      "sizeBytes": 12685,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "wizard",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "13.7 KB",
+      "sizeBytes": 13987,
+      "hidden": false,
+      "hasScripts": true,
+      "status": "known-good",
+      "notes": "ships a bash template; needs a bash shell to run on Windows"
+    },
+    {
+      "name": "writing-beats",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "5.0 KB",
+      "sizeBytes": 5069,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good",
+      "notes": "beta bucket (skills/in-progress)"
+    },
+    {
+      "name": "writing-for-agents",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "13.4 KB",
+      "sizeBytes": 13723,
+      "hidden": false,
+      "hasScripts": false,
+      "status": "known-good"
+    },
+    {
+      "name": "writing-fragments",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "3.7 KB",
+      "sizeBytes": 3782,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good",
+      "notes": "beta bucket (skills/in-progress)"
+    },
+    {
+      "name": "writing-shape",
+      "source": "mattpocock/skills",
+      "license": "MIT",
+      "size": "6.0 KB",
+      "sizeBytes": 6150,
+      "hidden": true,
+      "hasScripts": false,
+      "status": "known-good",
+      "notes": "beta bucket (skills/in-progress)"
+    }
+  ]
+}
