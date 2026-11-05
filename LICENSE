@@ -19,10 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-This license covers only the files in this repository (configuration templates,
-scripts and documentation). Third-party plugins, skills and tools that the
-install scripts download are licensed by their own authors; see
-THIRD-PARTY-NOTICES.md and the licenses/ directory.
